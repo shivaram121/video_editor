@@ -10,7 +10,7 @@ class TrimTimeline extends StatelessWidget {
     required this.controller,
     this.quantity = 8,
     this.padding = EdgeInsets.zero,
-    this.localSeconds = 's',
+    this.localSeconds = 'sss',
     this.textStyle,
   });
 
