@@ -68,11 +68,11 @@ class _ThumbnailSliderState extends State<ThumbnailSlider> {
     );
 
     // regenerate thumbnails if need more to fit the slider
-    // _neededThumbnails = (_sliderWidth ~/ _maxLayout.width) + 1;
-    // if (_neededThumbnails > _thumbnailsCount) {
-    //   _thumbnailsCount = _neededThumbnails;
-    //   setState(() => _stream = _generateThumbnails());
-    // }
+    _neededThumbnails = (_sliderWidth ~/ _maxLayout.width) + 1;
+    if (_neededThumbnails > _thumbnailsCount) {
+      _thumbnailsCount = _neededThumbnails;
+      setState(() => _stream = _generateThumbnails());
+    }
   }
 
   Stream<List<Uint8List>> _generateThumbnails() => generateTrimThumbnails(
