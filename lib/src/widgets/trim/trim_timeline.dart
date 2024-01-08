@@ -60,7 +60,7 @@ class TrimTimeline extends StatelessWidget {
                   (t.inMilliseconds / 1000).toStringAsFixed(1).padLeft(2, '0');
 
               return Text(
-                '$text$localSeconds',
+                '$text shiva',
                 style: textStyle ?? Theme.of(context).textTheme.bodySmall,
               );
             }),
