@@ -10,7 +10,7 @@ class TrimTimeline extends StatelessWidget {
     required this.controller,
     this.quantity = 8,
     this.padding = EdgeInsets.zero,
-    this.localSeconds = 'sss',
+    this.localSeconds = 's',
     this.textStyle,
   });
 
@@ -44,7 +44,7 @@ class TrimTimeline extends StatelessWidget {
     return LayoutBuilder(builder: (_, contrainst) {
       final int count =
           (max(1, (contrainst.maxWidth / MediaQuery.of(context).size.width)) *
-                  min(controller.videoDuration.inSeconds * 15, controller.videoDuration.inMilliseconds ~/ 100))
+                  min(quantity, controller.videoDuration.inMilliseconds ~/ 100))
               .toInt();
       final gap = controller.videoDuration.inMilliseconds ~/ (count - 1);
 
@@ -60,7 +60,7 @@ class TrimTimeline extends StatelessWidget {
                   (t.inMilliseconds / 1000).toStringAsFixed(1).padLeft(2, '0');
 
               return Text(
-                '$text shiva',
+                '$text$localSeconds',
                 style: textStyle ?? Theme.of(context).textTheme.bodySmall,
               );
             }),

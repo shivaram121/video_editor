@@ -10,12 +10,10 @@ Stream<List<Uint8List>> generateTrimThumbnails(
   required int quantity,
 }) async* {
   final String path = controller.file.path;
-  int q = controller.videoDuration.inSeconds * 15;
-  final double eachPart = controller.videoDuration.inMilliseconds / q;
-
+  final double eachPart = controller.videoDuration.inMilliseconds / quantity;
   List<Uint8List> byteList = [];
 
-  for (int i = 1; i <= q; i++) {
+  for (int i = 1; i <= quantity; i++) {
     try {
       final Uint8List? bytes = await VideoThumbnail.thumbnailData(
         imageFormat: ImageFormat.JPEG,
