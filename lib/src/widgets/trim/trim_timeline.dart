@@ -44,7 +44,7 @@ class TrimTimeline extends StatelessWidget {
     return LayoutBuilder(builder: (_, contrainst) {
       final int count =
           (max(1, (contrainst.maxWidth / MediaQuery.of(context).size.width)) *
-                  min(quantity, controller.videoDuration.inMilliseconds ~/ 100))
+                  min(controller.videoDuration.inSeconds * 15, controller.videoDuration.inMilliseconds ~/ 100))
               .toInt();
       final gap = controller.videoDuration.inMilliseconds ~/ (count - 1);
 
